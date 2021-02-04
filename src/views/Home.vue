@@ -6,12 +6,21 @@
     <button @click="back('back')">返回</button>
     <button @click="back('push')">前进</button>
     <button @click="back('replace')">replace</button>
+
+
+    <div>
+      mock的使用
+      <button @click="getInfo">点击</button>
+
+    </div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import HelloWorld from '_c/HelloWorld.vue'
+import {getUserInfo} from '@/api/user'
+import axios from 'axios'
 
 export default {
   name: 'Home',
@@ -49,6 +58,19 @@ export default {
       // 注意params和query的区别
       // params是路由的一部分，必须在路由后面添加参数，且不显示参数名字
       // query是拼接的，没有也没关系，显示参数名字
+    },
+
+
+    getInfo(){
+      // getUserInfo({ userId: '21'}).then(res => {
+      //   console.log('点击获取', res)
+      // })
+      // 上面的axios封装写的有问题
+      axios.post(
+        'http://localhost:4000/getUserInfo'
+      ,{ userId: 21 }).then(res => {
+        console.log(res);
+      })
     }
   }
 }

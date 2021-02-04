@@ -25,7 +25,7 @@ module.exports = {
   // 打包时不生成.map文件，加快速度
   productionSourceMap: false,
   // 跨域配置
-  devServer: {
-    proxy:'http://localhost:4000' // 告诉开发服务器，让任何未知请求都代理到这个url
-  }
+  // devServer: {
+  //   // proxy:'http://localhost:4000' // 告诉开发服务器，让任何未知请求都代理到这个url
+  // }
 }
